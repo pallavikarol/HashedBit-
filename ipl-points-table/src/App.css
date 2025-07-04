@@ -1,0 +1,15 @@
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
