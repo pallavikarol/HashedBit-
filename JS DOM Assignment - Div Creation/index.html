@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Divs with Width, Height, Text</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f3e5f5, #e1f5fe);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+    }
+
+    #container {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .custom-box {
+      background-color: pink;
+      color: black;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .custom-box:hover {
+      transform: scale(1.1);
+      background-color: #ffb6c1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Create Custom Div</h1>
+  
+  <!-- Button and function call -->
+  <button onclick="createDiv(150, 80, 'Hello Box!')">Create New Div</button>
+
+  <!-- Container where new divs will be added -->
+  <div id="container"></div>
+
+  <script>
+    // Write your code here
+function createDiv(width, height, text) {
+    // Create a new div element
+    const element = document.createElement("div");
+
+    // Set the width and height (add "px" as unit)
+    element.style.width = width + "px";
+    element.style.height = height + "px";
+
+    // Set the text content
+    element.innerText = text;
+
+    // Append the new div to the container
+    document.getElementById("container").appendChild(element);
+}
+
+// Example usage
+createDiv(100, 50, 'Sample text');
+  </script>
+
+</body>
+</html>

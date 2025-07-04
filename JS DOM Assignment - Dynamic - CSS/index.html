@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Text Styler</title>
+  <style>
+    .text-here {
+      font-size: 55px;
+      font-family: sans-serif;
+      color: black;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      text-align: left;
+      letter-spacing: normal;
+      word-spacing: normal;
+    }
+
+    button {
+      margin: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    input[type="range"] {
+      width: 200px;
+    }
+
+    select {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text-here" id="text-container">This is some example text</div>
+  <br>
+
+  <!-- Input to change text color -->
+  <input type="text" id="colorbox" placeholder="Enter color like red, blue...">
+  <button id="colorchange" onclick="changeColour()">Change Colour</button>
+  <br><br>
+
+  <!-- Range input to change font size -->
+  <input type="range" id="fontsize" min="10" max="100" value="55" oninput="changeFontSize()">
+  <br><br>
+
+  <!-- Buttons to toggle styles -->
+  <button id="italic" onclick="toggleStyle('italic')">Italics</button>
+  <button id="underline" onclick="toggleStyle('underline')">Underline</button>
+  <button id="bold" onclick="toggleStyle('bold')">Bold</button>
+  <br><br>
+
+  <!-- Font family dropdown -->
+  <select id="fontSelect" onchange="changeFontFamily()">
+    <option>Serif</option>
+    <option>Sans-Serif</option>
+    <option>Monospace</option>
+    <option>Cursive</option>
+    <option>Fantasy</option>
+  </select>
+
+  <script>
+    let element = document.getElementById('text-container');
+
+    function changeColour() {
+      let color = document.getElementById('colorbox').value;
+      element.style.color = color;
+    }
+
+    function changeFontSize() {
+      let size = document.getElementById('fontsize').value;
+      element.style.fontSize = size + "px";
+    }
+
+    function toggleStyle(style) {
+      if (style === 'italic') {
+        element.style.fontStyle = (element.style.fontStyle === 'italic') ? 'normal' : 'italic';
+      } else if (style === 'underline') {
+        element.style.textDecoration = (element.style.textDecoration === 'underline') ? 'none' : 'underline';
+      } else if (style === 'bold') {
+        element.style.fontWeight = (element.style.fontWeight === 'bold') ? 'normal' : 'bold';
+      }
+    }
+
+    function changeFontFamily() {
+      let selectedFont = document.getElementById('fontSelect').value;
+      element.style.fontFamily = selectedFont;
+    }
+  </script>
+
+</body>
+</html>
